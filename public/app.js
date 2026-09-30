@@ -246,7 +246,11 @@ function renderAnswer() {
         'div',
         { class: 'weekend-chips' },
         weekends.map((w) =>
-          h('button', { class: 'chip', type: 'button', 'aria-pressed': 'false', 'data-id': w.id, onClick: toggleWeekend }, w.short),
+          h(
+            'button',
+            { class: w.crossesMonth ? 'chip chip--wide' : 'chip', type: 'button', 'aria-pressed': 'false', 'data-id': w.id, onClick: toggleWeekend },
+            w.short,
+          ),
         ),
       ),
     ),
@@ -371,6 +375,9 @@ window.addEventListener('unhandledrejection', (event) => {
   console.error(event.reason);
   showScreen('error');
 });
+
+// iOS Safari only shows :active (the pressed look) when a touch listener exists.
+document.addEventListener('touchstart', () => {}, { passive: true });
 
 wrapStaticText(document.getElementById('app'));
 start();

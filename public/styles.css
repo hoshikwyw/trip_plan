@@ -65,7 +65,22 @@ body {
   min-height: 100%;
 }
 
+html {
+  /* Stops iOS from enlarging text when the phone is turned sideways */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+button,
+input,
+textarea,
+label {
+  /* No double-tap zoom or tap delay on iPhone */
+  touch-action: manipulation;
+}
+
 body {
+  min-height: 100vh; /* older iOS without dvh */
   min-height: 100dvh;
   background: radial-gradient(120% 60% at 50% 0%, var(--bg-glow), transparent 70%), var(--bg);
   background-attachment: fixed;
@@ -131,6 +146,7 @@ blockquote {
 
 .screen {
   display: none;
+  min-height: calc(100vh - 56px); /* older iOS without dvh */
   min-height: calc(100dvh - 56px);
   flex-direction: column;
   align-items: center;
@@ -660,16 +676,22 @@ blockquote {
   margin: 0 0 6px;
 }
 
+/* Three even columns fit the smallest iPhones (375px wide) */
 .weekend-chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+}
+
+.chip--wide {
+  grid-column: span 2;
 }
 
 .chip {
   appearance: none;
-  min-width: 84px;
-  padding: 6px 14px;
+  min-height: 44px;
+  padding: 4px 8px;
+  white-space: nowrap;
   border-radius: 999px;
   border: 1.5px solid var(--line);
   background: var(--surface);
