@@ -3,6 +3,7 @@
 
 import { dates } from '../lib/content.js';
 import { availableWeekends } from '../lib/dates.js';
+import { answerEmail, notify } from '../lib/notify.js';
 import { get, setIfAbsent } from '../lib/store.js';
 
 const MAX_MESSAGE_LENGTH = 1000;
@@ -39,6 +40,8 @@ export default async function handler(req, res) {
       answeredAt: new Date().toISOString(),
     };
     const saved = await setIfAbsent('answer', answer);
+    // Awaited before responding: Vercel may stop the function once the response is sent.
+    if (saved) await notify(answerEmail(pick, answer));
 
     res.status(saved ? 201 : 409).json({
       alreadyAnswered: !saved,

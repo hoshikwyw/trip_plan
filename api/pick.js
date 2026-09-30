@@ -2,6 +2,7 @@
 // Saves her pick. Only the first pick ever counts; after that it always returns the saved one.
 
 import { findBox, revealedTrip } from '../lib/content.js';
+import { notify, pickEmail } from '../lib/notify.js';
 import { get, setIfAbsent } from '../lib/store.js';
 
 export default async function handler(req, res) {
@@ -18,6 +19,8 @@ export default async function handler(req, res) {
     const pick = { boxId, pickedAt: new Date().toISOString() };
     const saved = await setIfAbsent('pick', pick);
     const current = saved ? pick : await get('pick');
+    // Awaited before responding: Vercel may stop the function once the response is sent.
+    if (saved) await notify(pickEmail(pick));
 
     res.status(saved ? 201 : 409).json({
       alreadyPicked: !saved,
