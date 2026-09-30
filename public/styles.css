@@ -639,6 +639,160 @@ blockquote {
   margin-top: 20px;
 }
 
+.btn-wide {
+  width: 100%;
+}
+
+/* ---------- Answer ---------- */
+.weekends {
+  width: 100%;
+  margin: 8px 0 12px;
+  text-align: left;
+}
+
+.weekend-group + .weekend-group {
+  margin-top: 12px;
+}
+
+.weekend-month {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+
+.weekend-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  appearance: none;
+  min-width: 84px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chip:active {
+  transform: scale(0.96);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.chip:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  outline-offset: 2px;
+}
+
+.later-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 16px;
+  padding: 10px 14px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.later-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex: none;
+}
+
+.message-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.message-field span {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.message-field textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.8;
+}
+
+.message-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-note {
+  min-height: 1.9em;
+  margin: 10px 0;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.answer-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Answer summary ---------- */
+.summary {
+  margin-top: 8px;
+}
+
+.summary h3 {
+  font-size: 1.05rem;
+}
+
+.summary-choice {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.4em;
+}
+
+.summary-dates {
+  list-style: none;
+  margin: 0 0 0.8em;
+  padding: 0;
+}
+
+.summary-message {
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

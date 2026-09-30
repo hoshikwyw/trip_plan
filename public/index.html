@@ -67,6 +67,38 @@
         <div class="reveal-actions" id="reveal-actions"></div>
       </section>
 
+      <!-- Answer: dates, message, yes / let's talk -->
+      <section class="screen screen--top" data-screen="answer">
+        <h2 id="answer-title"></h2>
+        <p class="muted" id="answer-subtitle"></p>
+        <div class="weekends" id="weekends"></div>
+
+        <label class="later-toggle">
+          <input type="checkbox" id="later" />
+          <span id="later-label"></span>
+        </label>
+
+        <label class="message-field">
+          <span id="message-label"></span>
+          <textarea id="message" rows="4" maxlength="1000"></textarea>
+        </label>
+
+        <p class="form-note" id="answer-note" role="alert"></p>
+
+        <div class="answer-buttons">
+          <button class="btn btn-primary" id="answer-yes" type="button"></button>
+          <button class="btn btn-ghost" id="answer-talk" type="button"></button>
+        </div>
+      </section>
+
+      <!-- After she answers -->
+      <section class="screen" data-screen="done">
+        <p class="big-emoji" id="done-emoji" aria-hidden="true"></p>
+        <h1 id="done-title"></h1>
+        <p class="muted" id="done-text"></p>
+        <div class="card summary" id="done-summary"></div>
+      </section>
+
       <!-- Error -->
       <section class="screen" data-screen="error">
         <p class="big-emoji" aria-hidden="true">🥲</p>
