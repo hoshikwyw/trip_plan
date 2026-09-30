@@ -34,6 +34,39 @@
         <p class="muted">ခဏလေးနော်…</p>
       </section>
 
+      <!-- Intro -->
+      <section class="screen" data-screen="intro">
+        <div class="intro-gift" id="intro-gift" aria-hidden="true"></div>
+        <h1 id="intro-title"></h1>
+        <div class="intro-lines" id="intro-lines"></div>
+        <button class="btn btn-primary" id="intro-next" type="button"></button>
+      </section>
+
+      <!-- Blind boxes -->
+      <section class="screen" data-screen="boxes">
+        <h2>တစ်ဘူး ရွေးပါ 🎁</h2>
+        <p class="muted">ဘူးလေးကို နှိပ်ပြီး အရိပ်အမြွက်လေး ကြည့်လို့ရတယ်</p>
+        <div class="gifts" id="gifts"></div>
+        <div class="hint-bubble" id="hint" aria-live="polite">ဘူးလေး တစ်ခုကို နှိပ်ကြည့်ပါ 👆</div>
+        <button class="btn btn-primary" id="open-btn" type="button" disabled>ဘူးလေး ရွေးပါဦး</button>
+        <p class="muted small">ရွေးပြီးရင် ပြန်ပြောင်းလို့ မရတော့ဘူးနော်</p>
+      </section>
+
+      <!-- Opening animation -->
+      <section class="screen" data-screen="opening">
+        <div class="stage">
+          <div class="stage-gift" id="opening-gift"></div>
+          <div class="burst" id="burst" aria-hidden="true"></div>
+        </div>
+        <p class="muted" id="opening-text">ဖွင့်နေပြီ…</p>
+      </section>
+
+      <!-- Revealed trip -->
+      <section class="screen screen--top" data-screen="reveal">
+        <article class="card reveal-card" id="reveal"></article>
+        <div class="reveal-actions" id="reveal-actions"></div>
+      </section>
+
       <!-- Error -->
       <section class="screen" data-screen="error">
         <p class="big-emoji" aria-hidden="true">🥲</p>
