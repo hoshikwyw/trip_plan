@@ -1,0 +1,222 @@
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #fbf6f1;
+  --bg-glow: #f9e3e8;
+  --surface: #ffffff;
+  --ink: #3a2a33;
+  --ink-soft: #7a6570;
+  --accent: #d9577a;
+  --accent-ink: #ffffff;
+  --accent-soft: #f7dbe3;
+  --gold: #c99a4b;
+  --line: #eaded6;
+  --shadow: 0 10px 30px rgba(120, 60, 80, 0.12);
+
+  --radius: 20px;
+  --radius-sm: 12px;
+  --font-body: 'Noto Sans Myanmar', system-ui, sans-serif;
+  --font-display: 'Noto Serif Myanmar', 'Noto Sans Myanmar', serif;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #1d1519;
+    --bg-glow: #3a1f2a;
+    --surface: #2a1f25;
+    --ink: #f6e9ee;
+    --ink-soft: #bfa8b3;
+    --accent: #f07a9a;
+    --accent-ink: #1d1519;
+    --accent-soft: #4a2633;
+    --gold: #e0b56a;
+    --line: #3d2e35;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #1d1519;
+  --bg-glow: #3a1f2a;
+  --surface: #2a1f25;
+  --ink: #f6e9ee;
+  --ink-soft: #bfa8b3;
+  --accent: #f07a9a;
+  --accent-ink: #1d1519;
+  --accent-soft: #4a2633;
+  --gold: #e0b56a;
+  --line: #3d2e35;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: radial-gradient(120% 60% at 50% 0%, var(--bg-glow), transparent 70%), var(--bg);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  /* Myanmar script has tall stacked marks, so it needs extra line height */
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+.big-emoji {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 0 0 0.25em;
+}
+
+/* ---------- Layout ---------- */
+#app {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom));
+}
+
+.screen {
+  display: none;
+  min-height: calc(100dvh - 56px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.screen.is-active {
+  display: flex;
+  animation: screen-in 0.6s ease both;
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  text-align: left;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
+.btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  outline-offset: 3px;
+}
+
+/* ---------- Loader ---------- */
+.loader {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>မင်းအတွက် လက်ဆောင်</title>
+
+    <!-- Shown in the link preview when the link is sent in chat -->
+    <meta name="description" content="ဖွင့်ကြည့်ပါဦး 🎁" />
+    <meta property="og:title" content="မင်းအတွက် လက်ဆောင်လေး 🎁" />
+    <meta property="og:description" content="ဖွင့်ကြည့်ပါဦး" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#fbf6f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1d1519" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&family=Noto+Serif+Myanmar:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="app">
+      <!-- Loading -->
+      <section class="screen is-active" data-screen="loading" aria-live="polite">
+        <div class="loader" aria-hidden="true"></div>
+        <p class="muted">ခဏလေးနော်…</p>
+      </section>
+
+      <!-- Error -->
+      <section class="screen" data-screen="error">
+        <p class="big-emoji" aria-hidden="true">🥲</p>
+        <h1>တစ်ခုခု မှားသွားတယ်</h1>
+        <p class="muted">အင်တာနက် စစ်ပြီး ပြန်ဖွင့်ကြည့်ပေးပါနော်</p>
+        <button class="btn btn-primary" type="button" onclick="location.reload()">ပြန်ဖွင့်မယ်</button>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "trip-blind-box",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A blind-box weekend trip invite",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}
